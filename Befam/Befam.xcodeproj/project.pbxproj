@@ -15,6 +15,8 @@
 		B4F2F7F72892E4E2008EE927 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F2F7F62892E4E2008EE927 /* Product.swift */; };
 		B4F2F7FA2892E70E008EE927 /* ProductRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F2F7F92892E70E008EE927 /* ProductRepository.swift */; };
 		B4F2F7FC2892E774008EE927 /* ImageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F2F7FB2892E774008EE927 /* ImageRepository.swift */; };
+		B4F2F7FF2892E955008EE927 /* FetchProductUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F2F7FE2892E955008EE927 /* FetchProductUseCase.swift */; };
+		B4F2F8012892E96C008EE927 /* DownloadImageUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F2F8002892E96C008EE927 /* DownloadImageUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		B4F2F7F62892E4E2008EE927 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		B4F2F7F92892E70E008EE927 /* ProductRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRepository.swift; sourceTree = "<group>"; };
 		B4F2F7FB2892E774008EE927 /* ImageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRepository.swift; sourceTree = "<group>"; };
+		B4F2F7FE2892E955008EE927 /* FetchProductUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchProductUseCase.swift; sourceTree = "<group>"; };
+		B4F2F8002892E96C008EE927 /* DownloadImageUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadImageUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +78,7 @@
 		B4F2F7F42892E4D3008EE927 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				B4F2F7FD2892E949008EE927 /* UseCases */,
 				B4F2F7F82892E6EE008EE927 /* Repositories */,
 				B4F2F7F52892E4D5008EE927 /* Entities */,
 			);
@@ -95,6 +100,15 @@
 				B4F2F7FB2892E774008EE927 /* ImageRepository.swift */,
 			);
 			path = Repositories;
+			sourceTree = "<group>";
+		};
+		B4F2F7FD2892E949008EE927 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				B4F2F7FE2892E955008EE927 /* FetchProductUseCase.swift */,
+				B4F2F8002892E96C008EE927 /* DownloadImageUseCase.swift */,
+			);
+			path = UseCases;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,6 +181,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4F2F7FF2892E955008EE927 /* FetchProductUseCase.swift in Sources */,
+				B4F2F8012892E96C008EE927 /* DownloadImageUseCase.swift in Sources */,
 				B4F2F7E52892E379008EE927 /* ViewController.swift in Sources */,
 				B4F2F7FC2892E774008EE927 /* ImageRepository.swift in Sources */,
 				B4F2F7FA2892E70E008EE927 /* ProductRepository.swift in Sources */,
