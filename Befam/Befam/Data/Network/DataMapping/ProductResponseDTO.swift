@@ -33,6 +33,14 @@ extension ProductResponseDTO {
   }
 }
 
+extension ProductResponseDTO {
+  func toDomain() -> ProductResponse {
+    let domainResults = results.map({ $0.toDomain() })
+    return ProductResponse(resultCount: resultCount,
+                           results: domainResults)
+  }
+}
+
 extension ProductResponseDTO.ProductDTO {
   func toDomain() -> Product {
     return Product(
