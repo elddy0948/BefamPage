@@ -18,6 +18,7 @@
 		B4F2F7FF2892E955008EE927 /* FetchProductUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F2F7FE2892E955008EE927 /* FetchProductUseCase.swift */; };
 		B4F2F8012892E96C008EE927 /* DownloadImageUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F2F8002892E96C008EE927 /* DownloadImageUseCase.swift */; };
 		B4F2F8062892EE94008EE927 /* ProductResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F2F8052892EE94008EE927 /* ProductResponseDTO.swift */; };
+		B4F2F8082892EFED008EE927 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F2F8072892EFED008EE927 /* NetworkService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		B4F2F7FE2892E955008EE927 /* FetchProductUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchProductUseCase.swift; sourceTree = "<group>"; };
 		B4F2F8002892E96C008EE927 /* DownloadImageUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadImageUseCase.swift; sourceTree = "<group>"; };
 		B4F2F8052892EE94008EE927 /* ProductResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductResponseDTO.swift; sourceTree = "<group>"; };
+		B4F2F8072892EFED008EE927 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,14 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		B4F2F8042892EE79008EE927 /* DataMapping */ = {
+			isa = PBXGroup;
+			children = (
+				B4F2F8052892EE94008EE927 /* ProductResponseDTO.swift */,
+			);
+			path = DataMapping;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -201,6 +211,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4F2F8082892EFED008EE927 /* NetworkService.swift in Sources */,
 				B4F2F7FF2892E955008EE927 /* FetchProductUseCase.swift in Sources */,
 				B4F2F8012892E96C008EE927 /* DownloadImageUseCase.swift in Sources */,
 				B4F2F7E52892E379008EE927 /* ViewController.swift in Sources */,
