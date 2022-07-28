@@ -21,6 +21,7 @@
 		B4F2F8082892EFED008EE927 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F2F8072892EFED008EE927 /* NetworkService.swift */; };
 		B4F2F80B2892F0F0008EE927 /* DefaultProductRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F2F80A2892F0F0008EE927 /* DefaultProductRepository.swift */; };
 		B4F2F80E2892F18C008EE927 /* ProductResponseStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F2F80D2892F18C008EE927 /* ProductResponseStorage.swift */; };
+		B4F2F8102892F46F008EE927 /* ProductResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F2F80F2892F46F008EE927 /* ProductResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		B4F2F8072892EFED008EE927 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		B4F2F80A2892F0F0008EE927 /* DefaultProductRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultProductRepository.swift; sourceTree = "<group>"; };
 		B4F2F80D2892F18C008EE927 /* ProductResponseStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductResponseStorage.swift; sourceTree = "<group>"; };
+		B4F2F80F2892F46F008EE927 /* ProductResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				B4F2F7F62892E4E2008EE927 /* Product.swift */,
+				B4F2F80F2892F46F008EE927 /* ProductResponse.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -241,6 +244,7 @@
 				B4F2F80E2892F18C008EE927 /* ProductResponseStorage.swift in Sources */,
 				B4F2F7FC2892E774008EE927 /* ImageRepository.swift in Sources */,
 				B4F2F7FA2892E70E008EE927 /* ProductRepository.swift in Sources */,
+				B4F2F8102892F46F008EE927 /* ProductResponse.swift in Sources */,
 				B4F2F7F72892E4E2008EE927 /* Product.swift in Sources */,
 				B4F2F80B2892F0F0008EE927 /* DefaultProductRepository.swift in Sources */,
 				B4F2F7E12892E379008EE927 /* AppDelegate.swift in Sources */,
