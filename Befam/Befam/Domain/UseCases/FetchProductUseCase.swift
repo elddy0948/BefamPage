@@ -7,8 +7,9 @@ final class FetchProductUseCase {
     self.repository = repository
   }
   
-  func start(completion: @escaping (Result<Product, Error>) -> Void) {
-    repository.fetchProduct(completion: { result in
+  func start(cached: @escaping (Product) -> Void,
+             completion: @escaping (Result<Product, Error>) -> Void) {
+    repository.fetchProduct(cached: cached, completion: { result in
       completion(result)
     })
   }
