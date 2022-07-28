@@ -17,6 +17,7 @@
 		B4F2F7FC2892E774008EE927 /* ImageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F2F7FB2892E774008EE927 /* ImageRepository.swift */; };
 		B4F2F7FF2892E955008EE927 /* FetchProductUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F2F7FE2892E955008EE927 /* FetchProductUseCase.swift */; };
 		B4F2F8012892E96C008EE927 /* DownloadImageUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F2F8002892E96C008EE927 /* DownloadImageUseCase.swift */; };
+		B4F2F8062892EE94008EE927 /* ProductResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F2F8052892EE94008EE927 /* ProductResponseDTO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		B4F2F7FB2892E774008EE927 /* ImageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRepository.swift; sourceTree = "<group>"; };
 		B4F2F7FE2892E955008EE927 /* FetchProductUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchProductUseCase.swift; sourceTree = "<group>"; };
 		B4F2F8002892E96C008EE927 /* DownloadImageUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadImageUseCase.swift; sourceTree = "<group>"; };
+		B4F2F8052892EE94008EE927 /* ProductResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductResponseDTO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 		B4F2F7DF2892E379008EE927 /* Befam */ = {
 			isa = PBXGroup;
 			children = (
+				B4F2F8022892EE73008EE927 /* Data */,
 				B4F2F7F42892E4D3008EE927 /* Domain */,
 				B4F2F7E02892E379008EE927 /* AppDelegate.swift */,
 				B4F2F7E22892E379008EE927 /* SceneDelegate.swift */,
@@ -109,6 +112,23 @@
 				B4F2F8002892E96C008EE927 /* DownloadImageUseCase.swift */,
 			);
 			path = UseCases;
+			sourceTree = "<group>";
+		};
+		B4F2F8022892EE73008EE927 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				B4F2F8032892EE76008EE927 /* Network */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		B4F2F8032892EE76008EE927 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				B4F2F8072892EFED008EE927 /* NetworkService.swift */,
+				B4F2F8042892EE79008EE927 /* DataMapping */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,6 +204,7 @@
 				B4F2F7FF2892E955008EE927 /* FetchProductUseCase.swift in Sources */,
 				B4F2F8012892E96C008EE927 /* DownloadImageUseCase.swift in Sources */,
 				B4F2F7E52892E379008EE927 /* ViewController.swift in Sources */,
+				B4F2F8062892EE94008EE927 /* ProductResponseDTO.swift in Sources */,
 				B4F2F7FC2892E774008EE927 /* ImageRepository.swift in Sources */,
 				B4F2F7FA2892E70E008EE927 /* ProductRepository.swift in Sources */,
 				B4F2F7F72892E4E2008EE927 /* Product.swift in Sources */,
