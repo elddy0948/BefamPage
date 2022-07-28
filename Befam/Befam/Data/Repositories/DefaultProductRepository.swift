@@ -8,6 +8,26 @@ final class DefaultProductRepository: ProductRepository {
     self.persistentStorage = persistentStorage
   }
   
-  func fetchProduct(cached: @escaping (Product) -> Void, completion: @escaping (Result<Product, Error>) -> Void) {
+  func fetchProduct(cached: @escaping (Product) -> Void,
+                    completion: @escaping (Result<Product, Error>) -> Void) {
+    persistentStorage.fetchProduct(completion: { result in
+      switch result {
+      case .success(let responseDTO):
+        cached(responseDTO.toDomain().results[0])
+      default:
+        break
+      }
+      
+      //Fetch from Network
+      NetworkService.shared.fetchProduct(completion: { result in
+        switch result {
+        case .success(let responseDTO):
+          self.persistentStorage.save(responseDTO)
+          completion(.success(responseDTO.toDomain().results[0]))
+        case .failure(let error):
+          print(error.localizedDescription)
+        }
+      })
+    })
   }
 }
