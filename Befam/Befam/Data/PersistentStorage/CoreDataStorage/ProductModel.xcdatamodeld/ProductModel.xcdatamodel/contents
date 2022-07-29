@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21F79" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="CDProduct" representedClassName="CDProduct" syncable="YES">
-        <attribute name="artworkUrl60" optional="YES" attributeType="String"/>
-        <attribute name="artworkUrl100" optional="YES" attributeType="String"/>
-        <attribute name="artworkUrl512" optional="YES" attributeType="String"/>
-        <attribute name="averageUserRating" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="currentVersionReleaseDate" optional="YES" attributeType="String"/>
-        <attribute name="des" optional="YES" attributeType="String"/>
-        <attribute name="fileSizeBytes" optional="YES" attributeType="String"/>
-        <attribute name="genres" optional="YES" attributeType="Transformable" customClassName="[String]"/>
-        <attribute name="languageCodesISO2A" optional="YES" attributeType="Transformable" customClassName="[String]"/>
-        <attribute name="releaseNotes" optional="YES" attributeType="String"/>
-        <attribute name="screenshotUrls" optional="YES" attributeType="Transformable" customClassName="[String]"/>
-        <attribute name="sellerName" optional="YES" attributeType="String"/>
-        <attribute name="trackContentRating" optional="YES" attributeType="String"/>
-        <attribute name="trackName" optional="YES" attributeType="String"/>
-        <attribute name="userRatingCount" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="version" optional="YES" attributeType="String"/>
+        <attribute name="artworkUrl60" attributeType="String"/>
+        <attribute name="artworkUrl100" attributeType="String"/>
+        <attribute name="artworkUrl512" attributeType="String"/>
+        <attribute name="averageUserRating" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="currentVersionReleaseDate" attributeType="String"/>
+        <attribute name="des" attributeType="String"/>
+        <attribute name="fileSizeBytes" attributeType="String"/>
+        <attribute name="genres" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[String]"/>
+        <attribute name="languageCodesISO2A" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[String]"/>
+        <attribute name="releaseNotes" attributeType="String"/>
+        <attribute name="screenshotUrls" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[String]"/>
+        <attribute name="sellerName" attributeType="String"/>
+        <attribute name="trackContentRating" attributeType="String"/>
+        <attribute name="trackName" attributeType="String"/>
+        <attribute name="userRatingCount" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="version" attributeType="String"/>
     </entity>
     <elements>
-        <element name="CDProduct" positionX="-45" positionY="0" width="128" height="14"/>
+        <element name="CDProduct" positionX="-45" positionY="0" width="128" height="269"/>
     </elements>
 </model>

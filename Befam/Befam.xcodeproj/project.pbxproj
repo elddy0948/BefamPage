@@ -10,8 +10,9 @@
 		B4ACEC0E28939D130092CE08 /* CoreDataProductResponseStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ACEC0D28939D130092CE08 /* CoreDataProductResponseStorage.swift */; };
 		B4ACEC1128939D650092CE08 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ACEC1028939D650092CE08 /* CoreDataStack.swift */; };
 		B4ACEC172893A5D50092CE08 /* ProductModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B4ACEC152893A5D50092CE08 /* ProductModel.xcdatamodeld */; };
-		B4ACEC1A2893AE9E0092CE08 /* CDProduct+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ACEC182893AE9E0092CE08 /* CDProduct+CoreDataClass.swift */; };
-		B4ACEC1B2893AE9E0092CE08 /* CDProduct+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ACEC192893AE9E0092CE08 /* CDProduct+CoreDataProperties.swift */; };
+		B4ACEC1E2893B3F80092CE08 /* CDProduct+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ACEC1C2893B3F80092CE08 /* CDProduct+CoreDataClass.swift */; };
+		B4ACEC1F2893B3F80092CE08 /* CDProduct+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ACEC1D2893B3F80092CE08 /* CDProduct+CoreDataProperties.swift */; };
+		B4ACEC212893BFF00092CE08 /* StorageError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ACEC202893BFF00092CE08 /* StorageError.swift */; };
 		B4F2F7E12892E379008EE927 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F2F7E02892E379008EE927 /* AppDelegate.swift */; };
 		B4F2F7E32892E379008EE927 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F2F7E22892E379008EE927 /* SceneDelegate.swift */; };
 		B4F2F7E52892E379008EE927 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F2F7E42892E379008EE927 /* ViewController.swift */; };
@@ -33,8 +34,9 @@
 		B4ACEC0D28939D130092CE08 /* CoreDataProductResponseStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataProductResponseStorage.swift; sourceTree = "<group>"; };
 		B4ACEC1028939D650092CE08 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		B4ACEC162893A5D50092CE08 /* ProductModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ProductModel.xcdatamodel; sourceTree = "<group>"; };
-		B4ACEC182893AE9E0092CE08 /* CDProduct+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDProduct+CoreDataClass.swift"; sourceTree = "<group>"; };
-		B4ACEC192893AE9E0092CE08 /* CDProduct+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDProduct+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B4ACEC1C2893B3F80092CE08 /* CDProduct+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDProduct+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B4ACEC1D2893B3F80092CE08 /* CDProduct+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDProduct+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B4ACEC202893BFF00092CE08 /* StorageError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageError.swift; sourceTree = "<group>"; };
 		B4F2F7DD2892E379008EE927 /* Befam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Befam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4F2F7E02892E379008EE927 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4F2F7E22892E379008EE927 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,8 +70,8 @@
 		B4ACEC0F28939D550092CE08 /* CoreDataStorage */ = {
 			isa = PBXGroup;
 			children = (
-				B4ACEC182893AE9E0092CE08 /* CDProduct+CoreDataClass.swift */,
-				B4ACEC192893AE9E0092CE08 /* CDProduct+CoreDataProperties.swift */,
+				B4ACEC1C2893B3F80092CE08 /* CDProduct+CoreDataClass.swift */,
+				B4ACEC1D2893B3F80092CE08 /* CDProduct+CoreDataProperties.swift */,
 				B4ACEC1028939D650092CE08 /* CoreDataStack.swift */,
 				B4ACEC152893A5D50092CE08 /* ProductModel.xcdatamodeld */,
 			);
@@ -182,8 +184,9 @@
 		B4F2F80C2892F150008EE927 /* PersistentStorage */ = {
 			isa = PBXGroup;
 			children = (
-				B4F2F80D2892F18C008EE927 /* ProductResponseStorage.swift */,
 				B4ACEC0D28939D130092CE08 /* CoreDataProductResponseStorage.swift */,
+				B4F2F80D2892F18C008EE927 /* ProductResponseStorage.swift */,
+				B4ACEC202893BFF00092CE08 /* StorageError.swift */,
 				B4ACEC0F28939D550092CE08 /* CoreDataStorage */,
 			);
 			path = PersistentStorage;
@@ -262,12 +265,13 @@
 				B4ACEC1128939D650092CE08 /* CoreDataStack.swift in Sources */,
 				B4F2F8082892EFED008EE927 /* NetworkService.swift in Sources */,
 				B4F2F7FF2892E955008EE927 /* FetchProductUseCase.swift in Sources */,
+				B4ACEC212893BFF00092CE08 /* StorageError.swift in Sources */,
 				B4ACEC172893A5D50092CE08 /* ProductModel.xcdatamodeld in Sources */,
-				B4ACEC1A2893AE9E0092CE08 /* CDProduct+CoreDataClass.swift in Sources */,
+				B4ACEC1E2893B3F80092CE08 /* CDProduct+CoreDataClass.swift in Sources */,
 				B4F2F8012892E96C008EE927 /* DownloadImageUseCase.swift in Sources */,
 				B4F2F7E52892E379008EE927 /* ViewController.swift in Sources */,
 				B4F2F8062892EE94008EE927 /* ProductResponseDTO.swift in Sources */,
-				B4ACEC1B2893AE9E0092CE08 /* CDProduct+CoreDataProperties.swift in Sources */,
+				B4ACEC1F2893B3F80092CE08 /* CDProduct+CoreDataProperties.swift in Sources */,
 				B4ACEC0E28939D130092CE08 /* CoreDataProductResponseStorage.swift in Sources */,
 				B4F2F80E2892F18C008EE927 /* ProductResponseStorage.swift in Sources */,
 				B4F2F7FC2892E774008EE927 /* ImageRepository.swift in Sources */,

@@ -6,7 +6,6 @@ final class NetworkService {
   private init() {}
   
   func fetchProduct(completion: @escaping (Result<ProductResponseDTO, Error>) -> Void) {
-    
   }
   
   func downloadImage(url: String, completion: @escaping (Data) -> Void) {
