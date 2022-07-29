@@ -24,6 +24,7 @@ final class DefaultProductRepository: ProductRepository {
         case .success(let responseDTO):
           self.persistentStorage.save(responseDTO)
           completion(.success(responseDTO.toDomain().results[0]))
+          
         case .failure(let error):
           print(error.localizedDescription)
         }
