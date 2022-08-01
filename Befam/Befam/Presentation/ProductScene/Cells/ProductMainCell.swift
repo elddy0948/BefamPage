@@ -28,6 +28,7 @@ final class ProductMainCell: UITableViewCell {
 
 extension ProductMainCell {
   private func cellStyle() {
+    selectionStyle = .none
     labelsStackView.translatesAutoresizingMaskIntoConstraints = false
     productImageView.translatesAutoresizingMaskIntoConstraints = false
     productNameLabel.translatesAutoresizingMaskIntoConstraints = false

@@ -52,7 +52,7 @@ extension ProductViewController {
     tableView.translatesAutoresizingMaskIntoConstraints = false
     tableView.dataSource = self
     tableView.delegate = self
-    tableView.backgroundColor = .systemBlue
+    tableView.backgroundColor = .systemBackground
     
     tableView.register(
       ProductMainCell.self,
@@ -61,6 +61,14 @@ extension ProductViewController {
     tableView.register(
       AppInfoCell.self,
       forCellReuseIdentifier: AppInfoCell.reuseIdentifier
+    )
+    tableView.register(
+      VersionHistoryCell.self,
+      forCellReuseIdentifier: VersionHistoryCell.reuseIdentifier
+    )
+    tableView.register(
+      ScreenshotCell.self,
+      forCellReuseIdentifier: ScreenshotCell.reuseIdentifier
     )
   }
   
@@ -78,7 +86,7 @@ extension ProductViewController {
 
 extension ProductViewController: UITableViewDataSource {
   func numberOfSections(in tableView: UITableView) -> Int {
-    return 2
+    return 4
   }
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return 1
@@ -86,7 +94,9 @@ extension ProductViewController: UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     guard let product = product else { return UITableViewCell() }
-    if indexPath.section == 0 {
+    
+    switch indexPath.section {
+    case 0:
       guard let cell = tableView.dequeueReusableCell(
         withIdentifier: ProductMainCell.reuseIdentifier,
         for: indexPath
@@ -96,16 +106,29 @@ extension ProductViewController: UITableViewDataSource {
         productName: product.trackName,
         sellerName: product.sellerName
       )
-      cell.layoutIfNeeded()
       return cell
-    } else if indexPath.section == 1 {
+    case 1:
       guard let cell = tableView.dequeueReusableCell(
         withIdentifier: AppInfoCell.reuseIdentifier,
         for: indexPath
       ) as? AppInfoCell else { return UITableViewCell() }
       cell.configureCellData(product: product)
-      cell.layoutIfNeeded()
       return cell
+    case 2:
+      guard let cell = tableView.dequeueReusableCell(
+        withIdentifier: VersionHistoryCell.reuseIdentifier,
+        for: indexPath
+      ) as? VersionHistoryCell else { return UITableViewCell() }
+      cell.configureCellData(version: product.version, versionDescription: product.description)
+      cell.delegate = self
+      return cell
+    case 3:
+      guard let cell = tableView.dequeueReusableCell(
+        withIdentifier: ScreenshotCell.reuseIdentifier, for: indexPath
+      ) as? ScreenshotCell else { return UITableViewCell() }
+      return cell
+    default:
+      break
     }
     
     return UITableViewCell()
@@ -114,7 +137,17 @@ extension ProductViewController: UITableViewDataSource {
 
 extension ProductViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    if indexPath.section == 1 { return 72 }
+    if indexPath.section == 1 { return 88 }
+    else if indexPath.section == 3 { return 408 }
     return UITableView.automaticDimension
+  }
+}
+
+extension ProductViewController: VersionHistoryCellDelegate {
+  func didTappedMoreButton(_ button: UIButton, label: UILabel) {
+    tableView.beginUpdates()
+    button.isHidden = true
+    label.numberOfLines = 0
+    tableView.endUpdates()
   }
 }

@@ -37,6 +37,7 @@ final class AppInfoCell: UITableViewCell {
 
 extension AppInfoCell {
   private func cellStyle() {
+    selectionStyle = .none
     collectionView.translatesAutoresizingMaskIntoConstraints = false
     collectionView.register(
       AppInfoCollectionViewCell.self,
@@ -52,10 +53,10 @@ extension AppInfoCell {
     contentView.addSubview(collectionView)
     
     NSLayoutConstraint.activate([
-      collectionView.topAnchor.constraint(equalTo: contentView.topAnchor),
-      collectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-      contentView.trailingAnchor.constraint(equalTo: collectionView.trailingAnchor),
-      contentView.bottomAnchor.constraint(equalTo: collectionView.bottomAnchor),
+      collectionView.topAnchor.constraint(equalToSystemSpacingBelow: contentView.topAnchor, multiplier: 1),
+      collectionView.leadingAnchor.constraint(equalToSystemSpacingAfter: contentView.leadingAnchor, multiplier: 1),
+      contentView.trailingAnchor.constraint(equalToSystemSpacingAfter: collectionView.trailingAnchor, multiplier: 1),
+      contentView.bottomAnchor.constraint(equalToSystemSpacingBelow: collectionView.bottomAnchor, multiplier: 1)
     ])
   }
 }
@@ -114,7 +115,6 @@ extension AppInfoCell: UICollectionViewDataSource {
       break
     }
     
-    collectionView.setNeedsLayout()
     return cell
   }
 }
@@ -125,10 +125,10 @@ extension AppInfoCell: UICollectionViewDelegateFlowLayout {
   }
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-    return 0
+    return 8
   }
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-    return 0
+    return 8
   }
 }
