@@ -28,7 +28,6 @@ final class NetworkService {
       
       do {
         let responseDTO = try JSONDecoder().decode(ProductResponseDTO.self, from: data)
-        print(responseDTO)
         completion(.success(responseDTO))
         return
       } catch {

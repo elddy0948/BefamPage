@@ -14,6 +14,10 @@
 		B4ACEC1F2893B3F80092CE08 /* CDProduct+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ACEC1D2893B3F80092CE08 /* CDProduct+CoreDataProperties.swift */; };
 		B4ACEC212893BFF00092CE08 /* StorageError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ACEC202893BFF00092CE08 /* StorageError.swift */; };
 		B4ACEC2328941B450092CE08 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ACEC2228941B450092CE08 /* NetworkError.swift */; };
+		B4C662282894FE8600245485 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C662272894FE8600245485 /* ProductViewController.swift */; };
+		B4C6622B2895041100245485 /* ProductMainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C6622A2895041100245485 /* ProductMainCell.swift */; };
+		B4C6622D2897A3AE00245485 /* AppInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C6622C2897A3AE00245485 /* AppInfoCell.swift */; };
+		B4C6622F2897A5D200245485 /* AppInfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C6622E2897A5D200245485 /* AppInfoCollectionViewCell.swift */; };
 		B4F2F7E12892E379008EE927 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F2F7E02892E379008EE927 /* AppDelegate.swift */; };
 		B4F2F7E32892E379008EE927 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F2F7E22892E379008EE927 /* SceneDelegate.swift */; };
 		B4F2F7E52892E379008EE927 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F2F7E42892E379008EE927 /* ViewController.swift */; };
@@ -39,6 +43,10 @@
 		B4ACEC1D2893B3F80092CE08 /* CDProduct+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDProduct+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B4ACEC202893BFF00092CE08 /* StorageError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageError.swift; sourceTree = "<group>"; };
 		B4ACEC2228941B450092CE08 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		B4C662272894FE8600245485 /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
+		B4C6622A2895041100245485 /* ProductMainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductMainCell.swift; sourceTree = "<group>"; };
+		B4C6622C2897A3AE00245485 /* AppInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoCell.swift; sourceTree = "<group>"; };
+		B4C6622E2897A5D200245485 /* AppInfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoCollectionViewCell.swift; sourceTree = "<group>"; };
 		B4F2F7DD2892E379008EE927 /* Befam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Befam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4F2F7E02892E379008EE927 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4F2F7E22892E379008EE927 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +77,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B43D8BD328943A480065C382 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				B43D8BD428943A740065C382 /* ProductScene */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		B43D8BD428943A740065C382 /* ProductScene */ = {
+			isa = PBXGroup;
+			children = (
+				B4C662272894FE8600245485 /* ProductViewController.swift */,
+				B4C66229289503FF00245485 /* Cells */,
+			);
+			path = ProductScene;
+			sourceTree = "<group>";
+		};
 		B4ACEC0F28939D550092CE08 /* CoreDataStorage */ = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +103,16 @@
 				B4ACEC152893A5D50092CE08 /* ProductModel.xcdatamodeld */,
 			);
 			path = CoreDataStorage;
+			sourceTree = "<group>";
+		};
+		B4C66229289503FF00245485 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				B4C6622A2895041100245485 /* ProductMainCell.swift */,
+				B4C6622C2897A3AE00245485 /* AppInfoCell.swift */,
+				B4C6622E2897A5D200245485 /* AppInfoCollectionViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		B4F2F7D42892E379008EE927 = {
@@ -99,6 +134,7 @@
 		B4F2F7DF2892E379008EE927 /* Befam */ = {
 			isa = PBXGroup;
 			children = (
+				B43D8BD328943A480065C382 /* Presentation */,
 				B4F2F8022892EE73008EE927 /* Data */,
 				B4F2F7F42892E4D3008EE927 /* Domain */,
 				B4F2F7E02892E379008EE927 /* AppDelegate.swift */,
@@ -268,6 +304,7 @@
 				B4ACEC1128939D650092CE08 /* CoreDataStack.swift in Sources */,
 				B4F2F8082892EFED008EE927 /* NetworkService.swift in Sources */,
 				B4F2F7FF2892E955008EE927 /* FetchProductUseCase.swift in Sources */,
+				B4C662282894FE8600245485 /* ProductViewController.swift in Sources */,
 				B4ACEC212893BFF00092CE08 /* StorageError.swift in Sources */,
 				B4ACEC172893A5D50092CE08 /* ProductModel.xcdatamodeld in Sources */,
 				B4ACEC1E2893B3F80092CE08 /* CDProduct+CoreDataClass.swift in Sources */,
@@ -275,6 +312,7 @@
 				B4F2F7E52892E379008EE927 /* ViewController.swift in Sources */,
 				B4F2F8062892EE94008EE927 /* ProductResponseDTO.swift in Sources */,
 				B4ACEC2328941B450092CE08 /* NetworkError.swift in Sources */,
+				B4C6622D2897A3AE00245485 /* AppInfoCell.swift in Sources */,
 				B4ACEC1F2893B3F80092CE08 /* CDProduct+CoreDataProperties.swift in Sources */,
 				B4ACEC0E28939D130092CE08 /* CoreDataProductResponseStorage.swift in Sources */,
 				B4F2F80E2892F18C008EE927 /* ProductResponseStorage.swift in Sources */,
@@ -284,6 +322,8 @@
 				B4F2F7F72892E4E2008EE927 /* Product.swift in Sources */,
 				B4F2F80B2892F0F0008EE927 /* DefaultProductRepository.swift in Sources */,
 				B4F2F7E12892E379008EE927 /* AppDelegate.swift in Sources */,
+				B4C6622B2895041100245485 /* ProductMainCell.swift in Sources */,
+				B4C6622F2897A5D200245485 /* AppInfoCollectionViewCell.swift in Sources */,
 				B4F2F7E32892E379008EE927 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
