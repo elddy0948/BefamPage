@@ -31,6 +31,7 @@ final class VersionHistoryCell: UITableViewCell {
   }
 }
 
+//MARK: - UI / Layout
 extension VersionHistoryCell {
   private func cellStyle() {
     selectionStyle = .none
@@ -81,6 +82,7 @@ extension VersionHistoryCell {
   }
 }
 
+//MARK: - Actions
 extension VersionHistoryCell {
   @objc func didTappedMoreButton(_ sender: UIButton) {
     delegate?.didTappedMoreButton(sender, label: self.versionDescriptionLabel)

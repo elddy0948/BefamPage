@@ -116,13 +116,13 @@
 		B4C66229289503FF00245485 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				B4C6622A2895041100245485 /* ProductMainCell.swift */,
 				B4C6622C2897A3AE00245485 /* AppInfoCell.swift */,
 				B4C6622E2897A5D200245485 /* AppInfoCollectionViewCell.swift */,
-				B4C662302897D6A400245485 /* VersionHistoryCell.swift */,
+				B4C6623828980F5900245485 /* DescriptionCell.swift */,
+				B4C6622A2895041100245485 /* ProductMainCell.swift */,
 				B4C662322897F42D00245485 /* ScreenshotCell.swift */,
 				B4C662342897F57E00245485 /* ScreenshotCollectionViewCell.swift */,
-				B4C6623828980F5900245485 /* DescriptionCell.swift */,
+				B4C662302897D6A400245485 /* VersionHistoryCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -146,14 +146,14 @@
 		B4F2F7DF2892E379008EE927 /* Befam */ = {
 			isa = PBXGroup;
 			children = (
-				B43D8BD328943A480065C382 /* Presentation */,
-				B4F2F8022892EE73008EE927 /* Data */,
-				B4F2F7F42892E4D3008EE927 /* Domain */,
+				B4F2F7EE2892E37A008EE927 /* Info.plist */,
 				B4F2F7E02892E379008EE927 /* AppDelegate.swift */,
 				B4F2F7E22892E379008EE927 /* SceneDelegate.swift */,
 				B4F2F7E92892E37A008EE927 /* Assets.xcassets */,
+				B4F2F8022892EE73008EE927 /* Data */,
+				B4F2F7F42892E4D3008EE927 /* Domain */,
 				B4F2F7EB2892E37A008EE927 /* LaunchScreen.storyboard */,
-				B4F2F7EE2892E37A008EE927 /* Info.plist */,
+				B43D8BD328943A480065C382 /* Presentation */,
 			);
 			path = Befam;
 			sourceTree = "<group>";
@@ -161,9 +161,9 @@
 		B4F2F7F42892E4D3008EE927 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				B4F2F7FD2892E949008EE927 /* UseCases */,
-				B4F2F7F82892E6EE008EE927 /* Repositories */,
 				B4F2F7F52892E4D5008EE927 /* Entities */,
+				B4F2F7F82892E6EE008EE927 /* Repositories */,
+				B4F2F7FD2892E949008EE927 /* UseCases */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -198,9 +198,9 @@
 		B4F2F8022892EE73008EE927 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				B4F2F8032892EE76008EE927 /* Network */,
 				B4F2F80C2892F150008EE927 /* PersistentStorage */,
 				B4F2F8092892F0DD008EE927 /* Repositories */,
-				B4F2F8032892EE76008EE927 /* Network */,
 			);
 			path = Data;
 			sourceTree = "<group>";

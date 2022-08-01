@@ -44,6 +44,8 @@ final class ScreenshotCollectionViewCell: UICollectionViewCell {
     })
   }
 }
+
+//MARK: - UI / Layout
 extension ScreenshotCollectionViewCell {
   private func cellStyle() {
     contentView.addSubview(screenshotImageView)

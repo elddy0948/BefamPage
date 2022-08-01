@@ -39,6 +39,10 @@ final class ProductViewController: UIViewController {
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+    fetchProduct()
+  }
+  
+  private func fetchProduct() {
     fetchProductUseCase.start(
       cached: { cachedProduct in
         self.product = cachedProduct
@@ -46,8 +50,8 @@ final class ProductViewController: UIViewController {
         switch result {
         case .success(let product):
           self.product = product
-        case .failure(let error):
-          print(error)
+        case .failure(_):
+          return
         }
       })
   }
@@ -103,10 +107,9 @@ extension ProductViewController {
         completion: { result in
           switch result {
           case .success(let data):
-            print(data)
             self?.imageForNavigationTitle = UIImage(data: data)
-          case .failure(let error):
-            print(error)
+          case .failure(_):
+            return
           }
         })
     }
@@ -204,13 +207,17 @@ extension ProductViewController: DescriptionCellDelegate {
   func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
     
     if indexPath.section == 0 {
-      let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
-      imageView.layer.cornerRadius = 8
-      imageView.clipsToBounds = true
-      imageView.contentMode = .scaleAspectFit
-      imageView.image = imageForNavigationTitle
-      navigationItem.titleView = imageView
+      createImageViewForNavigationTitle()
     }
+  }
+  
+  private func createImageViewForNavigationTitle() {
+    let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
+    imageView.layer.cornerRadius = 8
+    imageView.clipsToBounds = true
+    imageView.contentMode = .scaleAspectFit
+    imageView.image = imageForNavigationTitle
+    navigationItem.titleView = imageView
   }
   
   func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

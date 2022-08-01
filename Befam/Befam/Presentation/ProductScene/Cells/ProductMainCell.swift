@@ -28,7 +28,6 @@ final class ProductMainCell: UITableViewCell {
   ) {
     productNameLabel.text = productName
     sellerNameLabel.text = sellerName
-    
     usecase.start(url: imageURL,
                   completion: { [weak self] result in
       switch result {

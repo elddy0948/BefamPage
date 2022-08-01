@@ -80,6 +80,7 @@ extension ScreenshotCell {
   }
 }
 
+//MARK: - UICollectionViewDataSource
 extension ScreenshotCell: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return screenshotURLs.count
@@ -100,8 +101,7 @@ extension ScreenshotCell: UICollectionViewDataSource {
   }
 }
 
-extension ScreenshotCell: UICollectionViewDelegate { }
-
+//MARK: - UICollectionViewDelegateFlowLayout
 extension ScreenshotCell: UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
     return CGSize(width: 248, height: 392)

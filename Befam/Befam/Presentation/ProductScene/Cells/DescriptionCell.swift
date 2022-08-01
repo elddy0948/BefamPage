@@ -28,6 +28,7 @@ final class DescriptionCell: UITableViewCell {
   }
 }
 
+//MARK: - UI / Layout
 extension DescriptionCell {
   private func cellStyle() {
     selectionStyle = .none

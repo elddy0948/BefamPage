@@ -51,6 +51,7 @@ final class AppInfoCollectionViewCell: UICollectionViewCell {
   }
 }
 
+//MARK: - UI / Layout
 extension AppInfoCollectionViewCell {
   private func cellStyle() {
     stackView.translatesAutoresizingMaskIntoConstraints = false

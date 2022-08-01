@@ -31,33 +31,9 @@ extension CoreDataProductResponseStorage: ProductResponseStorage {
   }
   
   func save(_ response: ProductResponseDTO) {
-    let cdProduct = CDProduct(context: coreDataStack.managedContext)
-    
     let responseProduct = response.results[0]
-    cdProduct.trackName = responseProduct.trackName
-    cdProduct.sellerName = responseProduct.sellerName
-    
-    cdProduct.userRatingCount = Int16(responseProduct.userRatingCount)
-    cdProduct.averageUserRating = responseProduct.averageUserRating
-    
-    cdProduct.trackContentRating = responseProduct.trackContentRating
-    cdProduct.genres = responseProduct.genres
-    
-    cdProduct.artworkUrl60 = responseProduct.artworkUrl60
-    cdProduct.artworkUrl512 = responseProduct.artworkUrl512
-    cdProduct.artworkUrl100 = responseProduct.artworkUrl100
-    
-    cdProduct.screenshotUrls = responseProduct.screenshotUrls
-    
-    cdProduct.currentVersionReleaseDate = responseProduct.currentVersionReleaseDate
-    cdProduct.releaseNotes = responseProduct.releaseNotes
-    
-    cdProduct.fileSizeBytes = responseProduct.fileSizeBytes
-    cdProduct.version = responseProduct.version
-    
-    cdProduct.des = responseProduct.description
-    cdProduct.languageCodesISO2A = responseProduct.languageCodesISO2A
-    
+    let cdProduct = CDProduct(context: coreDataStack.managedContext)
+    convert(to: cdProduct, from: responseProduct)
     DispatchQueue.global(qos: .background).async { [weak self] in
       self?.coreDataStack.saveContext()
     }
@@ -90,5 +66,31 @@ extension CoreDataProductResponseStorage: ProductResponseStorage {
     )
     
     return response
+  }
+  
+  private func convert(to cdProduct: CDProduct, from responseProduct: ProductResponseDTO.ProductDTO) {
+    cdProduct.trackName = responseProduct.trackName
+    cdProduct.sellerName = responseProduct.sellerName
+    
+    cdProduct.userRatingCount = Int16(responseProduct.userRatingCount)
+    cdProduct.averageUserRating = responseProduct.averageUserRating
+    
+    cdProduct.trackContentRating = responseProduct.trackContentRating
+    cdProduct.genres = responseProduct.genres
+    
+    cdProduct.artworkUrl60 = responseProduct.artworkUrl60
+    cdProduct.artworkUrl512 = responseProduct.artworkUrl512
+    cdProduct.artworkUrl100 = responseProduct.artworkUrl100
+    
+    cdProduct.screenshotUrls = responseProduct.screenshotUrls
+    
+    cdProduct.currentVersionReleaseDate = responseProduct.currentVersionReleaseDate
+    cdProduct.releaseNotes = responseProduct.releaseNotes
+    
+    cdProduct.fileSizeBytes = responseProduct.fileSizeBytes
+    cdProduct.version = responseProduct.version
+    
+    cdProduct.des = responseProduct.description
+    cdProduct.languageCodesISO2A = responseProduct.languageCodesISO2A
   }
 }
