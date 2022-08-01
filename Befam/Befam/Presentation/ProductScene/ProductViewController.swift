@@ -50,6 +50,7 @@ final class ProductViewController: UIViewController {
   }
 }
 
+//MARK: - UI / Layout
 extension ProductViewController {
   private func style() {
     tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -57,6 +58,7 @@ extension ProductViewController {
     tableView.delegate = self
     tableView.backgroundColor = .systemBackground
     
+    //MARK: - Register Cells
     tableView.register(
       ProductMainCell.self,
       forCellReuseIdentifier: ProductMainCell.reuseIdentifier
@@ -73,6 +75,10 @@ extension ProductViewController {
       ScreenshotCell.self,
       forCellReuseIdentifier: ScreenshotCell.reuseIdentifier
     )
+    tableView.register(
+      DescriptionCell.self,
+      forCellReuseIdentifier: DescriptionCell.reuseIdentifier
+    )
   }
   
   private func layout() {
@@ -87,9 +93,10 @@ extension ProductViewController {
   }
 }
 
+//MARK: - UITableViewDataSource
 extension ProductViewController: UITableViewDataSource {
   func numberOfSections(in tableView: UITableView) -> Int {
-    return 4
+    return 5
   }
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return 1
@@ -133,6 +140,14 @@ extension ProductViewController: UITableViewDataSource {
       cell.configure(with: product.screenshotUrls,
                      usecase: downloadImageUseCase)
       return cell
+    case 4:
+      guard let cell = tableView.dequeueReusableCell(
+        withIdentifier: DescriptionCell.reuseIdentifier,
+        for: indexPath
+      ) as? DescriptionCell else { return UITableViewCell() }
+      cell.delegate = self
+      cell.configureCellData(description: product.description)
+      return cell
     default:
       break
     }
@@ -154,6 +169,15 @@ extension ProductViewController: VersionHistoryCellDelegate {
     tableView.beginUpdates()
     button.isHidden = true
     label.numberOfLines = 0
+    tableView.endUpdates()
+  }
+}
+
+extension ProductViewController: DescriptionCellDelegate {
+  func didTappedMoreButton(_ button: UIButton, descriptionLabel: UILabel) {
+    tableView.beginUpdates()
+    button.isHidden = true
+    descriptionLabel.numberOfLines = 0
     tableView.endUpdates()
   }
 }
