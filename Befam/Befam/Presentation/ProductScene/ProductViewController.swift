@@ -53,8 +53,6 @@ extension ProductViewController {
     tableView.dataSource = self
     tableView.delegate = self
     tableView.backgroundColor = .systemBlue
-    tableView.estimatedRowHeight = 108
-    tableView.rowHeight = UITableView.automaticDimension
     
     tableView.register(
       ProductMainCell.self,
@@ -115,10 +113,6 @@ extension ProductViewController: UITableViewDataSource {
 }
 
 extension ProductViewController: UITableViewDelegate {
-  func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-    return 108
-  }
-  
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     if indexPath.section == 1 { return 72 }
     return UITableView.automaticDimension

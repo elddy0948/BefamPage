@@ -80,7 +80,7 @@ extension AppInfoCell: UICollectionViewDataSource {
         topTitle: "\(product.userRatingCount)개의 평가",
         imageName: nil,
         middleContent: String(format: "%.1f", product.averageUserRating),
-        bottomContent: ""
+        bottomContent: "평점"
       )
     case 1:
       cell.configureCell(
@@ -107,7 +107,7 @@ extension AppInfoCell: UICollectionViewDataSource {
       cell.configureCell(
         topTitle: "언어",
         imageName: nil,
-        middleContent: product.languageCodesISO2A[0],
+        middleContent: product.languageCodesISO2A[1],
         bottomContent: "+\(product.languageCodesISO2A.count - 1)개의 언어"
       )
     default:
@@ -121,7 +121,7 @@ extension AppInfoCell: UICollectionViewDataSource {
 
 extension AppInfoCell: UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    return CGSize(width: 100, height: collectionView.frame.height)
+    return CGSize(width: 88, height: 72)
   }
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
