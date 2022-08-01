@@ -23,8 +23,6 @@ final class ScreenshotCollectionViewCell: UICollectionViewCell {
   
   required init?(coder: NSCoder) {
     super.init(coder: coder)
-//    screenshotImageView()
-//    layout()
   }
   
   override func prepareForReuse() {
@@ -32,8 +30,19 @@ final class ScreenshotCollectionViewCell: UICollectionViewCell {
     screenshotImageView.image = nil
   }
   
-  func downloadImage(with url: String) {
+  func downloadImage(with url: String, usecase: DownloadImageUseCase?) {
     cellImageUrl = url
+    usecase?.start(url: cellImageUrl, completion: { [weak self] result in
+      guard let self = self else { return }
+      switch result {
+      case .success(let data):
+        if self.cellImageUrl == url {
+          self.screenshotImageView.image = UIImage(data: data)
+        }
+      case .failure(_):
+        break
+      }
+    })
   }
 }
 extension ScreenshotCollectionViewCell {

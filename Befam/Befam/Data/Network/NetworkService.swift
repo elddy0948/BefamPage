@@ -28,8 +28,9 @@ final class NetworkService {
       
       do {
         let responseDTO = try JSONDecoder().decode(ProductResponseDTO.self, from: data)
-        completion(.success(responseDTO))
-        return
+        DispatchQueue.main.async {
+          completion(.success(responseDTO))
+        }
       } catch {
         completion(.failure(NetworkError.decodingError))
       }
@@ -39,6 +40,26 @@ final class NetworkService {
   }
   
   func downloadImage(url: String, completion: @escaping (Data) -> Void) {
+    guard let url = URL(string: url) else {
+      return
+    }
     
+    let task = URLSession.shared.dataTask(with: url, completionHandler: { data, response, error in
+      if let _ = error {
+        return
+      }
+      
+      guard let response = response as? HTTPURLResponse,
+            (200 ..< 300) ~= response.statusCode,
+            let data = data else {
+        return
+      }
+      
+      DispatchQueue.main.async {
+        completion(data)
+      }
+    })
+    
+    task.resume()
   }
 }

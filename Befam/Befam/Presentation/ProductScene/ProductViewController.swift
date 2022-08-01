@@ -4,6 +4,7 @@ final class ProductViewController: UIViewController {
   
   private let tableView = UITableView()
   private let fetchProductUseCase: FetchProductUseCase
+  private let downloadImageUseCase: DownloadImageUseCase
   private var product: Product? {
     didSet {
       DispatchQueue.main.async { [weak self] in
@@ -14,9 +15,11 @@ final class ProductViewController: UIViewController {
   }
   
   init(
-    fetchProductUseCase: FetchProductUseCase
+    fetchProductUseCase: FetchProductUseCase,
+    downloadImageUseCase: DownloadImageUseCase
   ) {
     self.fetchProductUseCase = fetchProductUseCase
+    self.downloadImageUseCase = downloadImageUseCase
     super.init(nibName: nil, bundle: nil)
   }
   
@@ -102,6 +105,7 @@ extension ProductViewController: UITableViewDataSource {
         for: indexPath
       ) as? ProductMainCell else { return UITableViewCell() }
       cell.configureCellData(
+        usecase: downloadImageUseCase,
         imageURL: product.artworkUrl100,
         productName: product.trackName,
         sellerName: product.sellerName
@@ -119,13 +123,15 @@ extension ProductViewController: UITableViewDataSource {
         withIdentifier: VersionHistoryCell.reuseIdentifier,
         for: indexPath
       ) as? VersionHistoryCell else { return UITableViewCell() }
-      cell.configureCellData(version: product.version, versionDescription: product.description)
+      cell.configureCellData(version: product.version, versionDescription: product.releaseNotes)
       cell.delegate = self
       return cell
     case 3:
       guard let cell = tableView.dequeueReusableCell(
         withIdentifier: ScreenshotCell.reuseIdentifier, for: indexPath
       ) as? ScreenshotCell else { return UITableViewCell() }
+      cell.configure(with: product.screenshotUrls,
+                     usecase: downloadImageUseCase)
       return cell
     default:
       break

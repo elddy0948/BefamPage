@@ -19,11 +19,12 @@ final class ScreenshotCell: UITableViewCell {
     return collectionView
   }()
   
-  private var thumbnailImagesUrls = [String]() {
+  private var screenshotURLs = [String]() {
     didSet {
       collectionView.reloadData()
     }
   }
+  private var usecase: DownloadImageUseCase?
   
   override init(style: UITableViewCell.CellStyle,
                 reuseIdentifier: String?) {
@@ -39,9 +40,10 @@ final class ScreenshotCell: UITableViewCell {
     layout()
   }
   
-//  func configure(with urls: [String]) {
-//    self.thumbnailImagesUrls = urls
-//  }
+  func configure(with urls: [String], usecase: DownloadImageUseCase) {
+    self.screenshotURLs = urls
+    self.usecase = usecase
+  }
 }
 
 //MARK: - UI Setup / Layout
@@ -80,7 +82,7 @@ extension ScreenshotCell {
 
 extension ScreenshotCell: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return 5
+    return screenshotURLs.count
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -91,8 +93,8 @@ extension ScreenshotCell: UICollectionViewDataSource {
       return UICollectionViewCell()
     }
     
-//    let url = thumbnailImagesUrls[indexPath.item]
-//    cell.downloadImage(with: url)
+    let url = screenshotURLs[indexPath.item]
+    cell.downloadImage(with: url, usecase: usecase)
     
     return cell
   }

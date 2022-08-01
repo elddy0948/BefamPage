@@ -20,9 +20,24 @@ final class ProductMainCell: UITableViewCell {
     fatalError("init(coder:) has not been implemented")
   }
   
-  func configureCellData(imageURL: String, productName: String, sellerName: String) {
+  func configureCellData(
+    usecase: DownloadImageUseCase,
+    imageURL: String,
+    productName: String,
+    sellerName: String
+  ) {
     productNameLabel.text = productName
     sellerNameLabel.text = sellerName
+    
+    usecase.start(url: imageURL,
+                  completion: { [weak self] result in
+      switch result {
+      case .success(let data):
+        self?.productImageView.image = UIImage(data: data)
+      case .failure(_):
+        break
+      }
+    })
   }
 }
 

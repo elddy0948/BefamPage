@@ -21,6 +21,7 @@
 		B4C662312897D6A400245485 /* VersionHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C662302897D6A400245485 /* VersionHistoryCell.swift */; };
 		B4C662332897F42D00245485 /* ScreenshotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C662322897F42D00245485 /* ScreenshotCell.swift */; };
 		B4C662352897F57E00245485 /* ScreenshotCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C662342897F57E00245485 /* ScreenshotCollectionViewCell.swift */; };
+		B4C662372897FABA00245485 /* DefaultDownloadImageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C662362897FABA00245485 /* DefaultDownloadImageRepository.swift */; };
 		B4F2F7E12892E379008EE927 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F2F7E02892E379008EE927 /* AppDelegate.swift */; };
 		B4F2F7E32892E379008EE927 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F2F7E22892E379008EE927 /* SceneDelegate.swift */; };
 		B4F2F7E52892E379008EE927 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F2F7E42892E379008EE927 /* ViewController.swift */; };
@@ -53,6 +54,7 @@
 		B4C662302897D6A400245485 /* VersionHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionHistoryCell.swift; sourceTree = "<group>"; };
 		B4C662322897F42D00245485 /* ScreenshotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotCell.swift; sourceTree = "<group>"; };
 		B4C662342897F57E00245485 /* ScreenshotCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotCollectionViewCell.swift; sourceTree = "<group>"; };
+		B4C662362897FABA00245485 /* DefaultDownloadImageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDownloadImageRepository.swift; sourceTree = "<group>"; };
 		B4F2F7DD2892E379008EE927 /* Befam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Befam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4F2F7E02892E379008EE927 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4F2F7E22892E379008EE927 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				B4F2F80A2892F0F0008EE927 /* DefaultProductRepository.swift */,
+				B4C662362897FABA00245485 /* DefaultDownloadImageRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				B4ACEC212893BFF00092CE08 /* StorageError.swift in Sources */,
 				B4ACEC172893A5D50092CE08 /* ProductModel.xcdatamodeld in Sources */,
 				B4ACEC1E2893B3F80092CE08 /* CDProduct+CoreDataClass.swift in Sources */,
+				B4C662372897FABA00245485 /* DefaultDownloadImageRepository.swift in Sources */,
 				B4F2F8012892E96C008EE927 /* DownloadImageUseCase.swift in Sources */,
 				B4F2F7E52892E379008EE927 /* ViewController.swift in Sources */,
 				B4F2F8062892EE94008EE927 /* ProductResponseDTO.swift in Sources */,

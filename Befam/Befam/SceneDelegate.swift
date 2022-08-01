@@ -9,8 +9,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     let repo = DefaultProductRepository(persistentStorage: self.storage)
     return repo
   }()
+  lazy var imageRepository: ImageRepository = {
+    let repo = DefaultDownloadImageRepository()
+    return repo
+  }()
   lazy var fetchProductUseCase: FetchProductUseCase = {
     let usecase = FetchProductUseCase(repository: self.repository)
+    return usecase
+  }()
+  lazy var downloadImageUseCase: DownloadImageUseCase = {
+    let usecase = DownloadImageUseCase(repository: self.imageRepository)
     return usecase
   }()
 
@@ -19,7 +27,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     window = UIWindow(windowScene: windowScene)
     window?.backgroundColor = .systemBackground
     window?.rootViewController = ProductViewController(
-      fetchProductUseCase: fetchProductUseCase
+      fetchProductUseCase: fetchProductUseCase,
+      downloadImageUseCase: downloadImageUseCase
     )
     window?.makeKeyAndVisible()
   }
