@@ -5,6 +5,9 @@ final class ProductViewController: UIViewController {
   private let tableView = UITableView()
   private let fetchProductUseCase: FetchProductUseCase
   private let downloadImageUseCase: DownloadImageUseCase
+  
+  private let activityIndicator = UIActivityIndicatorView(style: .large)
+  
   private var product: Product? {
     didSet {
       self.downloadTitleImage()
@@ -43,13 +46,16 @@ final class ProductViewController: UIViewController {
   }
   
   private func fetchProduct() {
+    activityIndicator.startAnimating()
     fetchProductUseCase.start(
-      cached: { cachedProduct in
-        self.product = cachedProduct
-      }, completion: { result in
+      cached: { [weak self] cachedProduct in
+        self?.activityIndicator.stopAnimating()
+        self?.product = cachedProduct
+      }, completion: { [weak self] result in
+        self?.activityIndicator.stopAnimating()
         switch result {
         case .success(let product):
-          self.product = product
+          self?.product = product
         case .failure(_):
           return
         }
@@ -61,9 +67,13 @@ final class ProductViewController: UIViewController {
 extension ProductViewController {
   private func style() {
     tableView.translatesAutoresizingMaskIntoConstraints = false
+    activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+    
     tableView.dataSource = self
     tableView.delegate = self
     tableView.backgroundColor = .systemBackground
+    
+    activityIndicator.hidesWhenStopped = true
     
     //MARK: - Register Cells
     tableView.register(
@@ -90,12 +100,15 @@ extension ProductViewController {
   
   private func layout() {
     view.addSubview(tableView)
+    view.addSubview(activityIndicator)
     
     NSLayoutConstraint.activate([
       tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
       tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
       tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
       tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+      activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+      activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor),
     ])
   }
   
