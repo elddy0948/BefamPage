@@ -67,11 +67,11 @@ extension VersionHistoryCell {
       ),
       stackView.leadingAnchor.constraint(
         equalToSystemSpacingAfter: contentView.leadingAnchor,
-        multiplier: 1
+        multiplier: 2
       ),
       contentView.trailingAnchor.constraint(
         equalToSystemSpacingAfter: stackView.trailingAnchor,
-        multiplier: 1
+        multiplier: 2
       ),
       contentView.bottomAnchor.constraint(
         equalToSystemSpacingBelow: stackView.bottomAnchor,

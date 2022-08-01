@@ -53,9 +53,9 @@ extension ProductMainCell {
     labelsStackView.axis = .vertical
     labelsStackView.distribution = .equalSpacing
     
-    productImageView.backgroundColor = .systemGray
     productImageView.layer.cornerRadius = 8
     productImageView.layer.masksToBounds = true
+    productImageView.contentMode = .scaleAspectFit
 
     productNameLabel.font = .preferredFont(forTextStyle: .title2)
     productNameLabel.textColor = .label

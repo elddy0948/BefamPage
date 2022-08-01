@@ -6,8 +6,7 @@ final class ScreenshotCollectionViewCell: UICollectionViewCell {
   //MARK: - Views
   lazy var screenshotImageView: UIImageView = {
     let imageview = UIImageView()
-    imageview.contentMode = .scaleAspectFit
-    imageview.backgroundColor = .gray
+    imageview.contentMode = .scaleAspectFill
     return imageview
   }()
   

@@ -68,10 +68,10 @@ extension ScreenshotCell {
         equalToSystemSpacingBelow: contentView.topAnchor, multiplier: 1
       ),
       collectionView.leadingAnchor.constraint(
-        equalToSystemSpacingAfter: contentView.leadingAnchor, multiplier: 1
+        equalToSystemSpacingAfter: contentView.leadingAnchor, multiplier: 2
       ),
       contentView.trailingAnchor.constraint(
-        equalToSystemSpacingAfter: collectionView.trailingAnchor, multiplier: 1
+        equalToSystemSpacingAfter: collectionView.trailingAnchor, multiplier: 2
       ),
       contentView.bottomAnchor.constraint(
         equalToSystemSpacingBelow: collectionView.bottomAnchor, multiplier: 1
@@ -104,6 +104,6 @@ extension ScreenshotCell: UICollectionViewDelegate { }
 
 extension ScreenshotCell: UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    return CGSize(width: collectionView.bounds.width / 1.5, height: 392)
+    return CGSize(width: 248, height: 392)
   }
 }
