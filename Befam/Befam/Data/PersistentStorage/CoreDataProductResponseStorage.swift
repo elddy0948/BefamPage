@@ -10,25 +10,27 @@ final class CoreDataProductResponseStorage {
 
 extension CoreDataProductResponseStorage: ProductResponseStorage {
   func fetchProduct(completion: @escaping (Result<ProductResponseDTO, StorageError>) -> Void) {
-    // Have to do in background
-    let request = CDProduct.fetchRequest()
-    do {
-      let result = try coreDataStack.managedContext.fetch(request).first
-      
-      guard let result = result else {
+    DispatchQueue.global(qos: .background).async { [weak self] in
+      guard let self = self else { return }
+      let request = CDProduct.fetchRequest()
+      do {
+        let result = try self.coreDataStack.managedContext.fetch(request).first
+        
+        guard let result = result else {
+          completion(.failure(.cantFindProduct))
+          return
+        }
+        let response = self.createDTOModel(with: result)
+        DispatchQueue.main.async {
+          completion(.success(response))
+        }
+      } catch {
         completion(.failure(.cantFindProduct))
-        return
       }
-      let response = createDTOModel(with: result)
-      
-      completion(.success(response))
-    } catch {
-      completion(.failure(.cantFindProduct))
     }
   }
   
   func save(_ response: ProductResponseDTO) {
-    // Have to do in background
     let cdProduct = CDProduct(context: coreDataStack.managedContext)
     
     let responseProduct = response.results[0]
@@ -56,7 +58,9 @@ extension CoreDataProductResponseStorage: ProductResponseStorage {
     cdProduct.des = responseProduct.description
     cdProduct.languageCodesISO2A = responseProduct.languageCodesISO2A
     
-    coreDataStack.saveContext()
+    DispatchQueue.global(qos: .background).async { [weak self] in
+      self?.coreDataStack.saveContext()
+    }
   }
   
   private func createDTOModel(

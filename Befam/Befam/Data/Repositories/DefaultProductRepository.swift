@@ -23,10 +23,11 @@ final class DefaultProductRepository: ProductRepository {
         switch result {
         case .success(let responseDTO):
           self.persistentStorage.save(responseDTO)
-          completion(.success(responseDTO.toDomain().results[0]))
-          
+          DispatchQueue.main.async {
+            completion(.success(responseDTO.toDomain().results[0]))
+          }
         case .failure(let error):
-          print(error.localizedDescription)
+          completion(.failure(error))
         }
       })
     })

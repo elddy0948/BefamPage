@@ -15,7 +15,9 @@ final class DefaultDownloadImageRepository: ImageRepository {
     NetworkService.shared.downloadImage(url: url, completion: { data in
       let nsData = NSData(data: data)
       self.cache.setObject(nsData, forKey: nsString)
-      completion(.success(data))
+      DispatchQueue.main.async {
+        completion(.success(data))
+      }
     })
   }
 }
