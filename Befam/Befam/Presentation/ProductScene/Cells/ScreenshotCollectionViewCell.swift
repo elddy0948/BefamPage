@@ -50,7 +50,7 @@ extension ScreenshotCollectionViewCell {
     screenshotImageView.translatesAutoresizingMaskIntoConstraints = false
     
     screenshotImageView.layer.cornerRadius = 16
-    screenshotImageView.layer.masksToBounds = true
+    screenshotImageView.clipsToBounds = true
   }
   
   private func layout() {

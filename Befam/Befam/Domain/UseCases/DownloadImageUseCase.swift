@@ -9,7 +9,9 @@ final class DownloadImageUseCase {
   
   func start(url: String, completion: @escaping (Result<Data, Error>) -> Void) {
     repository.fetchImage(with: url, completion: { result in
-      completion(result)
+      DispatchQueue.main.async {
+        completion(result)
+      }
     })
   }
 }

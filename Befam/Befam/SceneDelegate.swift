@@ -26,10 +26,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     guard let windowScene = (scene as? UIWindowScene) else { return }
     window = UIWindow(windowScene: windowScene)
     window?.backgroundColor = .systemBackground
-    window?.rootViewController = ProductViewController(
+    let viewController = ProductViewController(
       fetchProductUseCase: fetchProductUseCase,
       downloadImageUseCase: downloadImageUseCase
     )
+    window?.rootViewController = UINavigationController(rootViewController: viewController)
     window?.makeKeyAndVisible()
   }
 }

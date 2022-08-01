@@ -7,12 +7,15 @@ final class ProductViewController: UIViewController {
   private let downloadImageUseCase: DownloadImageUseCase
   private var product: Product? {
     didSet {
+      self.downloadTitleImage()
       DispatchQueue.main.async { [weak self] in
         self?.tableView.reloadData()
         self?.tableView.layoutIfNeeded()
       }
     }
   }
+  
+  private var imageForNavigationTitle: UIImage?
   
   init(
     fetchProductUseCase: FetchProductUseCase,
@@ -90,6 +93,23 @@ extension ProductViewController {
       tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
       tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
     ])
+  }
+  
+  private func downloadTitleImage() {
+    guard let product = product else { return }
+    DispatchQueue.global(qos: .utility).async { [weak self] in
+      self?.downloadImageUseCase.start(
+        url: product.artworkUrl60,
+        completion: { result in
+          switch result {
+          case .success(let data):
+            print(data)
+            self?.imageForNavigationTitle = UIImage(data: data)
+          case .failure(let error):
+            print(error)
+          }
+        })
+    }
   }
 }
 
@@ -179,5 +199,23 @@ extension ProductViewController: DescriptionCellDelegate {
     button.isHidden = true
     descriptionLabel.numberOfLines = 0
     tableView.endUpdates()
+  }
+  
+  func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    
+    if indexPath.section == 0 {
+      let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
+      imageView.layer.cornerRadius = 8
+      imageView.clipsToBounds = true
+      imageView.contentMode = .scaleAspectFit
+      imageView.image = imageForNavigationTitle
+      navigationItem.titleView = imageView
+    }
+  }
+  
+  func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    if indexPath.section == 0 {
+      navigationItem.titleView = nil
+    }
   }
 }

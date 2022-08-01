@@ -54,7 +54,7 @@ extension ProductMainCell {
     labelsStackView.distribution = .equalSpacing
     
     productImageView.layer.cornerRadius = 8
-    productImageView.layer.masksToBounds = true
+    productImageView.clipsToBounds = true
     productImageView.contentMode = .scaleAspectFit
 
     productNameLabel.font = .preferredFont(forTextStyle: .title2)
